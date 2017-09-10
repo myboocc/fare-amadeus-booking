@@ -1,0 +1,53 @@
+apply plugin: 'java'
+group = 'com.intlgds'
+//version = "${versions.amadeus_price_ws}"
+jar {
+	baseName = 'amadeus-booking-ws-server'
+}
+
+
+compileJava {
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+    def java_home = System.getenv("JAVA_HOME")
+
+    if (java_home != null) {
+      java_lib = java_home + "/jre/lib/"
+    }
+
+    def sep = ':'
+    options.bootClasspath = java_lib + "rt.jar" + sep + java_lib + "jce.jar"
+  }
+
+
+
+//repositories {
+  //flatDir { dirs "${System.env.JAVA_HOME}/jre/lib" }
+//}
+
+
+dependencies {
+    compile libraries.amadeus_price_proto_ws
+    compile libraries.amadeus_price_client_ws
+    
+    compile libraries.amadeus_booking_client
+    compile libraries.amadeus_booking_proto
+    
+    compile project(":fare-amadeus-booking:amadeus-booking-convertor")
+    
+//    compile project(":fare-pricing-util:fare-pricing-util-core")
+    compile libraries.fastjson
+    compile libraries.cxf_jaxws
+    compile libraries.cxf_http
+    compile libraries.cxf_security
+    compile libraries.ws_security_dom
+    //compile libraries.log4j
+    //compile (libraries.slf4j_api){ force = true  }
+    //compile (libraries.slf4j_log){ force = true  }
+    compile libraries.fare_dataStorage_mongo
+    compile libraries.fastinfoset
+//    compile libraries.framework_thrift
+    compile (libraries.spring_contexts){ force = true  }
+    compile libraries.framework_thrift
+
+}

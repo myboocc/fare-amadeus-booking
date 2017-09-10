@@ -1,0 +1,36 @@
+apply plugin: 'java'
+
+
+group = 'com.intlgds'
+version = "${versions.amadeus_booking}"
+jar {
+	baseName = 'amadeus-booking-client'
+}
+
+//apply plugin: 'fatjar'
+
+//buildscript {
+ //   repositories {
+  //      mavenCentral()
+ //   }
+
+ //   dependencies {
+  //      classpath 'eu.appsatori:gradle-fatjar-plugin:0.2'
+  //  }
+//}
+
+//build.dependsOn fatJar
+
+//fatJar {
+ //   exclude 'META-INF/*.DSA'
+//}
+
+//repositories { 
+//  mavenCentral()
+//}
+
+dependencies {
+	compile project(":fare-amadeus-booking:amadeus-booking-proto")
+    compile libraries.framework_thrift
+    compile libraries.spring_contexts
+}

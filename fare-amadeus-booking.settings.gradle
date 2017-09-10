@@ -1,0 +1,4 @@
+include 'fare-amadeus-booking:amadeus-booking-proto'
+include 'fare-amadeus-booking:amadeus-booking-server'
+include 'fare-amadeus-booking:amadeus-booking-convertor'
+include 'fare-amadeus-booking:amadeus-booking-client'

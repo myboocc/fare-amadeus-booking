@@ -1,0 +1,17 @@
+apply plugin: 'java'
+
+group = 'com.intlgds'
+version = "${versions.amadeus_booking}"
+jar {
+	baseName = 'amadeus-booking-convertor'
+}
+
+dependencies {
+	compile libraries.amadeus_price_proto_ws
+	
+	compile libraries.amadeus_booking_proto
+	
+    compile libraries.commons_lang3
+    compile libraries.dom4j
+    compile libraries.gson
+}
